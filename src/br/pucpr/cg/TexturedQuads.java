@@ -19,7 +19,6 @@ public class TexturedQuads implements Scene {
     private static final String PATH = "/Users/vinigodoy/img/opengl/";
     
     private Keyboard keys = Keyboard.getInstance();
-    private boolean normals = false;
     
     //Dados da cena
     private Camera camera = new Camera();
@@ -81,10 +80,6 @@ public class TexturedQuads implements Scene {
         if (keys.isDown(GLFW_KEY_SPACE)) {
             angleY = 0;
             angleX = 0;
-        }
-        
-        if (keys.isPressed(GLFW_KEY_N)) {
-            normals = !normals;
         }
     }
 
