@@ -92,6 +92,17 @@ public class Material implements ShaderItem {
         return this;
     }
 
+
+    public Material setTexture(Texture texture) {
+        return setTexture("uTexture", texture);
+    }
+    public Material setTexture(String path) {
+        return setTexture(new Texture(path));
+    }
+
+    public Material setTexture(String name, String path) {
+        return setTexture(name, new Texture(path));
+    }
     public Material setTexture(String name, Texture texture) {
         if (texture == null) {
             textures.remove(name);
@@ -104,6 +115,12 @@ public class Material implements ShaderItem {
     public Material setTextures(String name, Texture ... textures) {
         for (int i = 0; i < textures.length; i++) {
             setTexture(name + i, textures[i]);
+        }
+        return this;
+    }
+    public Material setTextures(String name, String ... paths) {
+        for (int i = 0; i < paths.length; i++) {
+            setTexture(name + i, new Texture(paths[i]));
         }
         return this;
     }
@@ -131,6 +148,7 @@ public class Material implements ShaderItem {
                 ", diffuse=" + asString(diffuse) +
                 ", specular=" + asString(specular) +
                 ", power=" + String.format("%.2f", power) +
+                ", textures=" + textures.keySet().toString() +
                 '}';
     }
 }
