@@ -14,6 +14,29 @@ import static br.pucpr.mage.MathUtil.cross;
 import static br.pucpr.mage.MathUtil.sub;
 
 public class MeshFactory {
+    public static Mesh createSquare(Shader shader) {
+        return new MeshBuilder(shader)
+                .addVector3fAttribute("aPosition",
+                        -0.5f,  0.5f, 0.0f,  //0
+                        0.5f,  0.5f, 0.0f,  //1
+                        -0.5f, -0.5f, 0.0f,  //2
+                        0.5f, -0.5f, 0.0f)  //3
+                .addVector3fAttribute("aNormal",
+                        0.0f, 0.0f, 1.0f,
+                        0.0f, 0.0f, 1.0f,
+                        0.0f, 0.0f, 1.0f,
+                        0.0f, 0.0f, 1.0f)
+                .addVector2fAttribute("aTexCoord",
+                        0.0f, 0.0f,
+                        1.0f, 0.0f,
+                        0.0f, 1.0f,
+                        1.0f, 1.0f)
+                .setIndexBuffer(
+                        0,  2,  3,
+                        0,  3,  1)
+                .create();
+    }
+
     public static Mesh createCube(Shader shader) {
         return new MeshBuilder(shader)
             .addVector3fAttribute("aPosition",
@@ -98,29 +121,6 @@ public class MeshFactory {
                 20, 23, 22,
                 20, 21, 23)
             .create();
-    }
-
-    public static Mesh createSquare(Shader shader) {
-        return new MeshBuilder(shader)
-                .addVector3fAttribute("aPosition",
-                        -0.5f,  0.5f, 0.0f,  //0
-                        0.5f,  0.5f, 0.0f,  //1
-                        -0.5f, -0.5f, 0.0f,  //2
-                        0.5f, -0.5f, 0.0f)  //3
-                .addVector3fAttribute("aNormal",
-                        0.0f, 0.0f, 1.0f,
-                        0.0f, 0.0f, 1.0f,
-                        0.0f, 0.0f, 1.0f,
-                        0.0f, 0.0f, 1.0f)
-                .addVector2fAttribute("aTexCoord",
-                        0.0f, 0.0f,
-                        1.0f, 0.0f,
-                        0.0f, 1.0f,
-                        1.0f, 1.0f)
-                .setIndexBuffer(
-                        0,  2,  3,
-                        0,  3,  1)
-                .create();
     }
 
     // Conversão de um índice no formato (x,z) para o linear, usado no index buffer
