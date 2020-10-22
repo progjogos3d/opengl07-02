@@ -132,12 +132,12 @@ public class Material implements ShaderItem {
             .setUniform("uSpecularMaterial", specular)
             .setUniform("uSpecularPower", power);
 
-        var texCount = 0;
+        var texSlot = 0;
         for (var entry : textures.entrySet()) {
-            glActiveTexture(GL_TEXTURE0 + texCount);
+            glActiveTexture(GL_TEXTURE0 + texSlot);
             entry.getValue().bind();
-            shader.setUniform(entry.getKey(), texCount);
-            texCount = texCount + 1;
+            shader.setUniform(entry.getKey(), texSlot);
+            texSlot = texSlot + 1;
         }
     }
 
