@@ -47,7 +47,6 @@ public class TexturedQuads implements Scene {
                 .setColor(0.7f)
                 .setSpecular(0.5f).setPower(2.0f)
                 .setTexture(PATH + "/textures/stone_t.jpg");
-        System.out.println(material);
     }
 
     @Override
