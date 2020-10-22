@@ -95,7 +95,7 @@ public class DirectionalLight implements ShaderItem {
 
     @Override
     public void apply(Shader shader) {
-        shader.setUniform("uLightDir", direction.normalize(new Vector3f()))
+        shader.setUniform("uLightDir", direction)
             .setUniform("uAmbientLight", ambient)
             .setUniform("uDiffuseLight", diffuse)
             .setUniform("uSpecularLight", specular);
