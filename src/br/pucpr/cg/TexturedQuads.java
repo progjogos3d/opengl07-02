@@ -31,7 +31,6 @@ public class TexturedQuads implements Scene {
     public void init() {
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_CULL_FACE);
-        glPolygonMode(GL_FRONT_FACE, GL_LINE);
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         shader = Shader.loadProgram("phong");
